@@ -4,6 +4,8 @@ import "./Login.css";
 import { FcHome } from "react-icons/fc";
 import { FcLock } from "react-icons/fc";
 import { FcBusinessman } from "react-icons/fc";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   return (
@@ -36,16 +38,20 @@ const Login = () => {
               required
             />
           </div>
-          <div className="forget-password">Forget Password?</div>
+          <Link className="forget-password">Forget Password?</Link>
           <div>
             <button className="btn login-btn">Login</button>
           </div>
           <div className="create-account">
-            Don't have an account? <b>Create account</b>
+            Don't have an account?{" "}
+            <Link to={"/createAccount"}>Create account</Link>
           </div>
         </form>
       </div>
     </div>
   );
 };
+
 export default Login;
+
+
