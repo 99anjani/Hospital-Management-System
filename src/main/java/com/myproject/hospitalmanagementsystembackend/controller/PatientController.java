@@ -18,15 +18,14 @@ import java.util.List;
 public class PatientController {
 
     private final PatientService patientService;
-    @GetMapping
+    @GetMapping("/getPatients")
     public ResponseEntity<List<Patient>> getPatient(){
-        return new ResponseEntity<>(patientService.getPatient(), HttpStatus.FOUND);
+        return new ResponseEntity<>(patientService.getPatient(), HttpStatus.OK);
     }
 
+
     @PostMapping
-//    public Patient addPatient(@RequestBody Patient patient){
-//        return patientService.addPatient(patient);
-//    }
+
     public ResponseEntity<?> addPatient(@RequestBody Patient patient) {
         try {
             return new ResponseEntity<>(patientService.addPatient(patient), HttpStatus.CREATED);
@@ -38,9 +37,7 @@ public class PatientController {
     }
 
     @PutMapping("/update/{id}")
-//    public Patient updatePatient(@RequestBody Patient patient,@PathVariable Long id){
-//        return patientService.updatePatient(patient,id);
-//    }
+
     public ResponseEntity<?> updatePatient(@RequestBody Patient patient, @PathVariable Long id) {
         try {
             return new ResponseEntity<>(patientService.updatePatient(patient, id), HttpStatus.OK);
@@ -54,7 +51,9 @@ public class PatientController {
     @DeleteMapping("/delete/{id}")
 //    public void deletePatient(@PathVariable Long id){
 //        patientService.deletePatient(id);
+//
 //    }
+
     public ResponseEntity<?> deletePatient(@PathVariable Long id) {
         try {
             patientService.deletePatient(id);
@@ -66,9 +65,7 @@ public class PatientController {
         }
     }
     @GetMapping("/patient/{id}")
-//    public Patient getPatientById(@PathVariable Long id){
-//        return patientService.getPatientById(id);
-//    }
+
     public ResponseEntity<?> getPatientById(@PathVariable Long id) {
         try {
             Patient patient = patientService.getPatientById(id);

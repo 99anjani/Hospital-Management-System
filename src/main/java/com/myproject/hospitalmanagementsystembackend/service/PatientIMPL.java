@@ -50,6 +50,7 @@ public class PatientIMPL implements PatientService {
         if(!patientRepository.existsById(id)){
             throw new PatientNotFoundException("Sorry, patient Not found");
         }
+        patientRepository.deleteById(id);
 
     }
 
